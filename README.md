@@ -9,7 +9,6 @@ Install at_learner_core
 cd /path/to/new/pip/environment
 python -m venv competition_env
 source competition_env/bin/activate
-pip install -r requirements.txt
 pip install -e at_learner_core/
 ```
 
