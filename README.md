@@ -32,14 +32,5 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 python main.py --config experiments/CASIA_Hifi/exp2
 ### Step 4.
 Run inference
 ```bash
-python test_config.py
-CUDA_VISIBLE_DEVICES=0 python casia_predictor.py --test_config experiment_tests/test/test.config \
- --model_config_path experiments/CASIA_Hifi/exp21/CASIA_Hifi_exp21.config \
- --checkpoint_path experiments/CASIA_Hifi/exp21/checkpoints/model_59.pth
-```
-
-### Step 5.
-Compile submit_file
-```bash
-python compile_submit_file.py
+bash inference.sh
 ```
