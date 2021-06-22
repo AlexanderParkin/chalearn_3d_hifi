@@ -23,8 +23,8 @@ You can skip this step, since we have done it with train_out.csv, val_out.csv, t
 
 ```bash
 # Run face detectors and save results
-python make_dataset_detections.py --data_dir /path/to/img/folder/ --list_dir /path/to/lists/dir --test_list test.txt
-    --train_list train.txt --val_list val.txt --test_list_out test_out.csv --train_list_out train_out.csv
+python make_dataset_detections.py --data_dir /path/to/img/folder/ --test_list test.txt
+    --train_list train_label.txt --val_list val_label.txt --test_list_out test_out.csv --train_list_out train_out.csv
     --val_list_out val_out.csv
 ```
 
@@ -33,7 +33,7 @@ Make crops from initial images and detections.
 
 ```bash
 # Run face detectors and save results
-python make_dataset_crops.py --data_dir /path/to/img/folder/ --list_dir /path/to/lists/dir
+python make_dataset_crops.py --data_dir /path/to/img/folder/
     --test_list_out test_out.csv --train_list_out train_out.csv
     --val_list_out val_out.csv --crops_dir /path/to/crops/folder/
 ```
