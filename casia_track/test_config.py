@@ -40,7 +40,7 @@ def get_config():
         'ngpu': 1,
         'dataset_configs': {
             'dataset_name': 'Df2DictDataset',
-            'datalist_path': '/netapp/grinchuk/combined_test_v1_multihead_crops.csv',
+            'datalist_path': 'test_out.csv',
             'data_columns': [('opensource_crop_0.3_path_black', 'data')],
             'target_columns': [('liveness','liveness')], 
             'transform_source': 'this_config',
