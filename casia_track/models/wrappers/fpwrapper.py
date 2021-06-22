@@ -1,3 +1,4 @@
+import numpy as np
 import torch.nn as nn
 import torch
 from at_learner_core.models.wrappers.losses import get_loss
@@ -86,4 +87,49 @@ class FPWrapper(Wrapper):
         self.backbone = parallel_class(self.backbone)
         for clf_name in ['data','eyes','chin','nose','ear_l','ear_r','liveness']: 
             setattr(self,clf_name,parallel_class(getattr(self,clf_name)))
+        return self
+
+
+class FPWrapperInference(FPWrapper):
+    def __init__(self, wrapper_config):
+        super().__init__(wrapper_config)
+        k = [2, 1, 1, 1, 0.5, 0.5]
+        self.k = k / np.sum(k)
+        self.score_columns = ['data_output', 'eyes_output',
+                              'nose_output', 'chin_output', 'ear_l_output', 'ear_r_output']
+
+    def forward(self, x):
+        input_data = [x['data'], x['eyes'], x['chin'],
+                      x['nose'], x['ear_l'], x['ear_r']]
+
+        output_dict = {}
+        features_list, features_cat = self.backbone(input_data)
+        outputs = [self.liveness(features_cat)]
+        loss = 0.0
+        for i, z in enumerate(self.class_names):
+            out = getattr(self, z)(features_list[i])
+            outputs.append(out)
+
+        for idx, clf_name in enumerate(['liveness', 'data', 'eyes', 'chin', 'nose', 'ear_l', 'ear_r']):
+            target = x['liveness']
+            output = outputs[idx]
+
+            output_dict[clf_name] = target.detach().cpu().numpy()
+            final_output = torch.sigmoid(output)
+            output_dict[clf_name + '_output'] = final_output.detach().cpu().numpy()
+            output_dict[clf_name + '_loss'] = 0.0
+
+        crops_score = 0.0
+        for coeff, score_column in zip(self.k, self.score_columns):
+            crops_score += coeff * output_dict[score_column]
+
+        output_dict = {'parts_output': crops_score,
+                       'liveness_output': output_dict['liveness_output']}
+
+        return output_dict, loss
+
+    def to_parallel(self, parallel_class):
+        self.backbone = parallel_class(self.backbone)
+        for clf_name in ['data', 'eyes', 'chin', 'nose', 'ear_l', 'ear_r', 'liveness']:
+            setattr(self, clf_name, parallel_class(getattr(self, clf_name)))
         return self

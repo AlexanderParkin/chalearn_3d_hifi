@@ -1,7 +1,7 @@
 from at_learner_core.predictor import Predictor
 from at_learner_core.datasets.dataset_manager import DatasetManager
 
-from models.wrappers.fpwrapper import FPWrapper
+from models.wrappers.fpwrapper import FPWrapperInference
 
 
         
@@ -17,7 +17,7 @@ class RGBPredictor(Predictor):
         
     def _init_wrapper(self, checkpoint):
         if self.model_config.wrapper_config.wrapper_name == 'FPWrapper':
-            self.wrapper = FPWrapper(self.model_config.wrapper_config)
+            self.wrapper = FPWrapperInference (self.model_config.wrapper_config)
         
                   
         self.wrapper.load_state_dict(checkpoint['state_dict'])
