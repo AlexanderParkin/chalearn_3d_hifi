@@ -19,6 +19,7 @@ defusedxml==0.7.1
 dominate==2.6.0
 elasticdeform==0.4.9
 entrypoints==0.3
+face-detection @ git+https://github.com/hukkelas/DSFD-Pytorch-Inference.git@7bbe1f61ef5cb951a6e55e0a80e4972419edf5ca
 filelock==3.0.12
 Flask==2.0.0
 gdown==3.13.0
