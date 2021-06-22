@@ -182,10 +182,7 @@ class AA_soft(object):
         return Image.fromarray(image)
 
 
-
-
-
-    class MakeTrash(object):
+class MakeTrash(object):
     def __init__(self, data_key = [],target_key = [], final_label=1, trash_size=(10,30), trash_ratio=(0.25,4)):
         '''
         '''

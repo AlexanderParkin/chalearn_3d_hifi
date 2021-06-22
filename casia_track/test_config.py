@@ -37,9 +37,9 @@ def get_config(test_name, use_flip=False):
         'ngpu': 1,
         'dataset_configs': {
             'dataset_name': 'Df2DictDataset',
-            'datalist_path': 'test_out.csv',
+            'datalist_path': '../test_out.csv',
             'data_columns': [('opensource_crop_0.3_path_black', 'data')],
-            'target_columns': [('liveness', 'liveness')],
+            'target_columns': None,
             'transform_source': 'this_config',
             'transforms': test_transforms,
             'test_process_config': {

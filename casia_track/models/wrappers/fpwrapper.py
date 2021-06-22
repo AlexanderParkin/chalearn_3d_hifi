@@ -3,7 +3,6 @@ import torch.nn as nn
 import torch
 from at_learner_core.models.wrappers.losses import get_loss
 from at_learner_core.models.wrappers.wrapper import Wrapper
-from at_learner_core.models.architectures import get_backbone
 
 from .fp_efficientnet import EfficientNet
 
@@ -111,10 +110,7 @@ class FPWrapperInference(FPWrapper):
             outputs.append(out)
 
         for idx, clf_name in enumerate(['liveness', 'data', 'eyes', 'chin', 'nose', 'ear_l', 'ear_r']):
-            target = x['liveness']
             output = outputs[idx]
-
-            output_dict[clf_name] = target.detach().cpu().numpy()
             final_output = torch.sigmoid(output)
             output_dict[clf_name + '_output'] = final_output.detach().cpu().numpy()
             output_dict[clf_name + '_loss'] = 0.0
