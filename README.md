@@ -2,6 +2,11 @@
 This is code of our solution for Chalearn 3D High-Fidelity Mask Face Presentation Attack Detection Challenge at ICCV 2021.
 Our solution based on analyzing parts of the face in search of small parts that would give out attack attempts of high-quality 3D masks.
 
+![net](https://user-images.githubusercontent.com/11870868/122923804-bbc3cf00-d36d-11eb-9909-4d70286af836.jpg)
+
+
+
+
 ## Training steps
 ### Step 1.
 Install at_learner_core
@@ -47,7 +52,7 @@ Run inference
 bash inference.sh
 ```
 
-Trained model download link:
+You can skip Step 3 and run inference on our checkpoint. Trained model download link:
 ```
 pip install gdown
 gdown https://drive.google.com/uc?id=1wdSGG_5JBCj0Ffldjq4P0_CA7Xz0sq5c
