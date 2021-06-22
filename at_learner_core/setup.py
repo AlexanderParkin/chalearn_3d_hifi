@@ -31,7 +31,7 @@ setup_info = dict(
 
     zip_safe=True,
 
-    #install_requires=load_requirements('requirements.txt')
+    install_requires=load_requirements('requirements.txt')
 )
 
 setup(**setup_info)
