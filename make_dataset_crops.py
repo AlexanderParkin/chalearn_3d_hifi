@@ -58,6 +58,7 @@ def fp(x, d):
 
 def main(args):
     df=pd.read_csv(os.path.join(args.list_dir, args.test_list_out))
+    df['full_path'] = df.apply(fp, axis=1, d=args.data_dir)
     df['opensource_crop_0.3_path_black'] = df.apply(fp, axis=1, d=args.crops_dir)
     df.to_csv(os.path.join(args.list_dir, args.test_list_out),index=False)
 
@@ -73,6 +74,7 @@ def main(args):
     print('test imgs done')
 
     df=pd.read_csv(os.path.join(args.list_dir, args.val_list_out))
+    df['full_path'] = df.apply(fp, axis=1, d=args.data_dir)
     df['opensource_crop_0.3_path_black'] = df.apply(fp, axis=1, d=args.crops_dir)
     df.to_csv(os.path.join(args.list_dir, args.val_list_out),index=False)
 
@@ -88,6 +90,7 @@ def main(args):
     print('val imgs done')
 
     df=pd.read_csv(os.path.join(args.list_dir, args.train_list_out))
+    df['full_path'] = df.apply(fp, axis=1, d=args.data_dir)
     df['opensource_crop_0.3_path_black'] = df.apply(fp, axis=1, d=args.crops_dir)
     df.to_csv(os.path.join(args.list_dir, args.train_list_out),index=False)
 
