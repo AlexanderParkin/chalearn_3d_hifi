@@ -162,7 +162,5 @@ if __name__ == '__main__':
     py_filename = os.path.join(out_path,
                             configs.head_config.task_name + '_' + configs.head_config.exp_name + '.py')
     
-    
-    copyfile('/netapp/grinchuk/atl/casia_track/save_config_crops.py',py_filename)
     torch.save(configs, filename)
     print('Options file was saved to ' + filename)
