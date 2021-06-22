@@ -14,16 +14,26 @@ pip install -e at_learner_core/
 
 ### Step 2.
 Launch the open-source face detector on the entire training set to get a bbox of the largest face for train/val/test data. 
-You can skip this step, since we have done it with train.csv, val.csv, test.csv and also posted the results.
+You can skip this step, since we have done it with train_out.csv, val_out.csv, test_out.csv and also posted the results.
 
 ```bash
 # Run face detectors and save results
-python make_dataset.py --data_dir /path/to/img/folder/ --list_dir /path/to/lists/dir --test_list test.txt
+python make_dataset_detections.py --data_dir /path/to/img/folder/ --list_dir /path/to/lists/dir --test_list test.txt
     --train_list train.txt --val_list val.txt --test_list_out test_out.csv --train_list_out train_out.csv
-    --val_list_out val_out.csv --crops_dir /path/to/crops/folder/
+    --val_list_out val_out.csv
 ```
 
 ### Step 3.
+Make crops from initial images and detections.
+
+```bash
+# Run face detectors and save results
+python make_dataset_crops.py --data_dir /path/to/img/folder/ --list_dir /path/to/lists/dir
+    --test_list_out test_out.csv --train_list_out train_out.csv
+    --val_list_out val_out.csv --crops_dir /path/to/crops/folder/
+```
+
+### Step 4.
 Run train process
 ```bash
 cd ../casia_track
@@ -31,7 +41,7 @@ python save_config_crops.py
 CUDA_VISIBLE_DEVICES=0,1,2,3 python main.py --config experiments/CASIA_Hifi/exp21/CASIA_Hifi_exp21.config;
 ```
 
-### Step 4.
+### Step 5.
 Run inference
 ```bash
 bash inference.sh
