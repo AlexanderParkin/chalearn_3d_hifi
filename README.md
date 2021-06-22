@@ -18,7 +18,9 @@ You can skip this step, since we have done it with train.csv, val.csv, test.csv 
 
 ```bash
 # Run face detectors and save results
-python make_dataset.py
+python make_dataset.py --data_dir /path/to/img/folder/ --list_dir /path/to/lists/dir --test_list test.txt
+    --train_list train.txt --val_list val.txt --test_list_out test_out.csv --train_list_out train_out.csv
+    --val_list_out val_out.csv --crops_dir /path/to/crops/folder/
 ```
 
 ### Step 3.
