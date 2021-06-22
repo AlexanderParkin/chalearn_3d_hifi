@@ -36,3 +36,9 @@ Run inference
 ```bash
 bash inference.sh
 ```
+
+Trained model download link:
+```
+pip install gdown
+wget https://drive.google.com/uc?id=1wdSGG_5JBCj0Ffldjq4P0_CA7Xz0sq5c
+```
