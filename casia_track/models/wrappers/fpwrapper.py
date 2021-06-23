@@ -120,7 +120,8 @@ class FPWrapperInference(FPWrapper):
             crops_score += coeff * output_dict[score_column]
 
         output_dict = {'parts_output': crops_score,
-                       'liveness_output': output_dict['liveness_output']}
+                       'liveness_output': output_dict['liveness_output'],
+                       'liveness':x['liveness'].detach().cpu().numpy()}
 
         return output_dict, loss
 
