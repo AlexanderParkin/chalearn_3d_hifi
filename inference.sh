@@ -12,5 +12,5 @@ CUDA_VISIBLE_DEVICES=0 python  casia_predictor.py --test_config experiment_tests
  --checkpoint_path experiments/CASIA_Hifi/exp21/checkpoints/model_59.pth
 
 cd ..
-python compile_submit_file.py --output_scores casia_track/experiment_tests/test/CASIA_Hifi/exp21/TestFileLogger/output_59.txt \
---hflip_output_scores casia_track/experiment_tests/test_flip/CASIA_Hifi/exp21/TestFileLogger/output_59.txt
+python compile_submit_file.py --output_scores ./casia_track/experiment_tests/test/CASIA_Hifi/exp21/TestFileLogger/output_59.csv \
+--hflip_output_scores ./casia_track/experiment_tests/test_flip/CASIA_Hifi/exp21/TestFileLogger/output_59.csv

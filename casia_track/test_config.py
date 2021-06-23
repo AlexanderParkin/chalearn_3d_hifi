@@ -39,7 +39,7 @@ def get_config(test_name, use_flip=False):
             'dataset_name': 'Df2DictDataset',
             'datalist_path': '../test_out.csv',
             'data_columns': [('opensource_crop_0.3_path_black', 'data')],
-            'target_columns': None,
+            'target_columns': [('label','liveness')],
             'transform_source': 'this_config',
             'transforms': test_transforms,
             'test_process_config': {
