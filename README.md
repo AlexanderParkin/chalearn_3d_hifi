@@ -14,6 +14,7 @@ Install at_learner_core
 cd /path/to/new/pip/environment
 python -m venv competition_env
 source competition_env/bin/activate
+cd path/to/chalearn_3d_hifi
 pip install -e at_learner_core/
 ```
 
