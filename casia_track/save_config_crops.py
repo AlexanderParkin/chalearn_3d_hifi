@@ -64,14 +64,14 @@ def get_config():
         'datalist_config': {
             'trainlist_config': {
                 'dataset_name': 'Df2DictDataset',
-                'datalist_path': 'train_out.csv',
+                'datalist_path': '../train_out.csv',
                 'data_columns':  [('opensource_crop_0.3_path_black', 'data')],
                 'target_columns': [('label','liveness')],
                 'transforms': train_transforms,
             },
             'testlist_configs': {
                 'dataset_name': 'Df2DictDataset',
-                'datalist_path': 'val_out.csv',
+                'datalist_path': '../val_out.csv',
                 'data_columns':  [('opensource_crop_0.3_path_black', 'data')],
                 'target_columns': [('label','liveness')],
                 'transforms': test_transforms,
