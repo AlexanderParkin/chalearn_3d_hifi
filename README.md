@@ -55,5 +55,6 @@ bash inference.sh
 You can skip Step 3 and run inference on our checkpoint. Trained model download link:
 ```
 pip install gdown
+cd path/to/chalearn_3d_hifi/casia_track/experiments/CASIA_Hifi/exp21/checkpoints
 gdown https://drive.google.com/uc?id=1wdSGG_5JBCj0Ffldjq4P0_CA7Xz0sq5c
 ```
