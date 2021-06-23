@@ -59,9 +59,7 @@ def get_config(test_name, use_flip=False):
                 {'logger_type': 'test_filelogger',
                  'show_metrics': {
                      'name': 'acer',
-                 },
-                 'other_info': ['data_output', 'eyes_output', 'eyes_output', 'chin_output', 'nose_output',
-                                'ear_l_output', 'ear_r_output']
+                 }
                  }]
         }
     }
