@@ -12,7 +12,7 @@ Our solution based on analyzing parts of the face in search of small parts that 
 Install at_learner_core
 ```bash
 conda create -n competition_env python=3.9
-source path/to/competition_env/bin/activate
+source activate competition_env
 cd path/to/chalearn_3d_hifi
 pip install -e at_learner_core/
 ```
