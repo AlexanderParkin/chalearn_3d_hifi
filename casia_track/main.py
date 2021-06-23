@@ -4,7 +4,7 @@ import os
 
 import numpy as np
 import torch
-from configs import get_config
+from save_config_crops import get_config
 from casia_trainer import RGBRunner
 
 
