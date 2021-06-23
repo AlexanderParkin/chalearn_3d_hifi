@@ -11,9 +11,8 @@ Our solution based on analyzing parts of the face in search of small parts that 
 ### Step 1.
 Install at_learner_core
 ```bash
-cd /path/to/new/pip/environment
-python -m venv competition_env
-source competition_env/bin/activate
+conda create -n competition_env python=3.9
+source path/to/competition_env/bin/activate
 cd path/to/chalearn_3d_hifi
 pip install -e at_learner_core/
 ```
