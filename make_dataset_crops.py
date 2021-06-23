@@ -58,6 +58,7 @@ def fp(x, d):
 
 def main(args):
     df=pd.read_csv(os.path.join(args.list_dir, args.test_list_out))
+    df['liveness'] = -1
     df['full_path'] = df.apply(fp, axis=1, d=args.data_dir)
     df['opensource_crop_0.3_path_black'] = df.apply(fp, axis=1, d=args.crops_dir)
     df.to_csv(os.path.join(args.list_dir, args.test_list_out),index=False)
