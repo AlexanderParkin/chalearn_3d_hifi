@@ -8,10 +8,10 @@ def main(args):
     if args.hflip_output_scores:
         hflip_result_df = pd.read_csv(args.hflip_output_scores)
 
-        base_scores = result_df['liveness_output']/2 + hflip_result_df['liveness_output']/2
+        base_scores = result_df['output_score']/2 + hflip_result_df['output_score']/2
         parts_scores = result_df['parts_output']/2 + hflip_result_df['parts_output']/2
     else:
-        base_scores = result_df['liveness_output']
+        base_scores = result_df['output_score']
         parts_scores = result_df['parts_output']
 
     test_df = pd.read_csv(args.test_csv_path)
@@ -26,7 +26,7 @@ def main(args):
     val_df.loc[val_df['liveness'] >= THR, 'liveness'] = THR + st
 
     submit_df = pd.concat([val_df, test_df])
-    submit_df['path', 'liveness'].to_csv(args.out_path, sep=' ', header=None, index=None)
+    submit_df[['path', 'liveness']].to_csv(args.out_path, sep=' ', header=None, index=None)
 
 
 if __name__ == '__main__':

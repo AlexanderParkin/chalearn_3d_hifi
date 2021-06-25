@@ -46,7 +46,7 @@ def get_config(test_name, use_flip=False):
                 'metric': {
                     'name': 'acer',
                     'target_column': 'liveness',
-                    'output_column': 'liveness_output',
+                    'output_column': 'liveness_output'
                 }
             },
             'nthreads': 8,
@@ -59,7 +59,8 @@ def get_config(test_name, use_flip=False):
                 {'logger_type': 'test_filelogger',
                  'show_metrics': {
                      'name': 'acer',
-                 }
+                 },
+                 'other_info': ['parts_output']
                  }]
         }
     }
