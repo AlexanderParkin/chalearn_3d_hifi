@@ -2,6 +2,18 @@
 This is code of our solution for Chalearn 3D High-Fidelity Mask Face Presentation Attack Detection Challenge at ICCV 2021.
 Our solution based on analyzing parts of the face in search of small parts that would give out attack attempts of high-quality 3D masks.
 
+If you use the code, please cite the following paper:
+"3D Mask Presentation Attack Detection via High Resolution Face Parts", Oleg Grinchuk, Aleksandr Parkin, Evgenija Glazistova. Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops, 2021.
+
+@InProceedings{Grinchuk_2021_ICCV,
+    author    = {Grinchuk, Oleg and Parkin, Aleksandr and Glazistova, Evgenija},
+    title     = {3D Mask Presentation Attack Detection via High Resolution Face Parts},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+    month     = {October},
+    year      = {2021},
+    pages     = {846-853}
+}
+
 ![net](https://user-images.githubusercontent.com/11870868/122923804-bbc3cf00-d36d-11eb-9909-4d70286af836.jpg)
 
 
